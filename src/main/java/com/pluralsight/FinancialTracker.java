@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class FinancialTracker {
 
-    private static ArrayList<Transaction> transactions = new ArrayList<Transaction>();
+    private static ArrayList<Transaction> transactionsList = new ArrayList<Transaction>();
     private static final String FILE_NAME = "transactions.csv";
     private static final String DATE_FORMAT = "yyyy-MM-dd";
     private static final String TIME_FORMAT = "HH:mm:ss";
@@ -51,7 +51,8 @@ public class FinancialTracker {
         scanner.close();
     }
 
-    public static void loadTransactions(String fileName) {
+
+    public static <BufferedReader> void loadTransactions(String fileName) {
         // This method should load transactions from a file with the given file name.
         // If the file does not exist, it should be created.
         // The transactions should be stored in the `transactions` ArrayList.
@@ -60,6 +61,21 @@ public class FinancialTracker {
         // For example: 2023-04-15|10:13:25|ergonomic keyboard|Amazon|-89.50
         // After reading all the transactions, the file should be closed.
         // If any errors occur, an appropriate error message should be displayed.
+        String line;
+//      make new trancation object
+        // from parts to transcation object
+        // save tranaction object to the arrylist is called tranactions up top
+        //
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(fileName));
+            while ((line = br.readLine()) != null) {
+                String[] parts = line.split("\\|");hgi
+
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private static void addDeposit(Scanner scanner) {
@@ -185,4 +201,3 @@ public class FinancialTracker {
         // If no transactions match the specified vendor name, the method prints a message indicating that there are no results.
     }
 }
- 
