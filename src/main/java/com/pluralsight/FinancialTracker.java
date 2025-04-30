@@ -1,13 +1,17 @@
 package com.pluralsight;
 
+import java.io.BufferedReader;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.io.FileReader;
 
 public class FinancialTracker {
 
-    private static ArrayList<Transaction> transactionsList = new ArrayList<Transaction>();
+    private static ArrayList<Transaction> transactions = new ArrayList<Transaction>();
     private static final String FILE_NAME = "transactions.csv";
     private static final String DATE_FORMAT = "yyyy-MM-dd";
     private static final String TIME_FORMAT = "HH:mm:ss";
@@ -52,7 +56,7 @@ public class FinancialTracker {
     }
 
 
-    public static <BufferedReader> void loadTransactions(String fileName) {
+    public static void loadTransactions(String fileName) {
         // This method should load transactions from a file with the given file name.
         // If the file does not exist, it should be created.
         // The transactions should be stored in the `transactions` ArrayList.
@@ -69,12 +73,17 @@ public class FinancialTracker {
         try {
             BufferedReader br = new BufferedReader(new FileReader(fileName));
             while ((line = br.readLine()) != null) {
-                String[] parts = line.split("\\|");hgi
-
-
+                String[] parts = line.split("\\|");
+                LocalDate date = LocalDate.parse(parts[0], DATE_FORMATTER);
+                LocalTime time = LocalTime.parse(parts[1], TIME_FORMATTER);
+                String description = parts[2];
+                String vendor = parts[3];
+                double amount = Double.parseDouble(parts[4]);
+                transactions.add(new Transaction(date, time, description, vendor, amount));
             }
+            br.close();
         } catch (Exception e) {
-            e.printStackTrace();
+            System.err.println("Error try again");
         }
     }
 
@@ -84,6 +93,32 @@ public class FinancialTracker {
         // The amount should be a positive number.
         // After validating the input, a new `Transaction` object should be created with the entered values.
         // The new deposit should be added to the `transactions` ArrayList.
+
+        /*
+        1- Ask the user for the info
+        2- Parse the date, time add amount
+        3- create new transaction
+        4- add the new transaction in the list
+        5- create a bufferedwriter
+        6- write the transaction to the file
+         */
+        try {
+            System.out.println("Enter the date and time in this format: yyyy-MM-dd HH:mm:ss");
+            String userDateTime = scanner.nextLine().trim();
+            String[] parts = userDateTime.split(" ");
+            String userDate = parts[0];
+            String userTime = parts[1];
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+            LocalDateTime dateTime = LocalDateTime.parse(userDateTime, formatter);
+            LocalDate date = dateTime.toLocalDate();
+            LocalTime time = dateTime.toLocalTime();
+
+        } catch (Exception e) {
+            System.err.println();
+        }
+
+
+
     }
 
     private static void addPayment(Scanner scanner) {
