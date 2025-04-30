@@ -102,20 +102,28 @@ public class FinancialTracker {
         5- create a bufferedwriter
         6- write the transaction to the file
          */
-        try {
-            System.out.println("Enter the date and time in this format: yyyy-MM-dd HH:mm:ss");
-            String userDateTime = scanner.nextLine().trim();
-            String[] parts = userDateTime.split(" ");
-            String userDate = parts[0];
-            String userTime = parts[1];
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-            LocalDateTime dateTime = LocalDateTime.parse(userDateTime, formatter);
-            LocalDate date = dateTime.toLocalDate();
-            LocalTime time = dateTime.toLocalTime();
+        //Date and Time
+        boolean check = false;
 
-        } catch (Exception e) {
-            System.err.println();
-        }
+        while(!check)
+            try {
+                System.out.println("Enter the date and time in this format: yyyy-MM-dd HH:mm:ss");
+                String userDateTime = scanner.nextLine().trim();
+                String[] parts = userDateTime.split(" ");
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+                LocalDateTime dateTime = LocalDateTime.parse(userDateTime, formatter);
+                LocalDate date = dateTime.toLocalDate();
+                LocalTime time = dateTime.toLocalTime();
+                check = true;
+
+               // Transaction transaction = new Transaction(date, time, description, vender, amount);
+
+            } catch (Exception e) {
+                System.err.println("Incorrect Format\n");
+
+            }
+
+
 
 
 
