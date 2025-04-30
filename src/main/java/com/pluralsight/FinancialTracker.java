@@ -1,6 +1,9 @@
 package com.pluralsight;
 
+import javax.imageio.IIOException;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -102,31 +105,68 @@ public class FinancialTracker {
         5- create a bufferedwriter
         6- write the transaction to the file
          */
-        //Date and Time
+        //Deposit Date and Time
         boolean check = false;
+        LocalDate date = null;
+        LocalTime time = null;
 
-        while(!check)
+        while (!check)
             try {
                 System.out.println("Enter the date and time in this format: yyyy-MM-dd HH:mm:ss");
                 String userDateTime = scanner.nextLine().trim();
                 String[] parts = userDateTime.split(" ");
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
                 LocalDateTime dateTime = LocalDateTime.parse(userDateTime, formatter);
-                LocalDate date = dateTime.toLocalDate();
-                LocalTime time = dateTime.toLocalTime();
+                date = dateTime.toLocalDate();
+                time = dateTime.toLocalTime();
                 check = true;
 
-               // Transaction transaction = new Transaction(date, time, description, vender, amount);
 
             } catch (Exception e) {
                 System.err.println("Incorrect Format\n");
 
             }
 
+        String description = "";
+        //Deposit Description
+        while (description.isEmpty()) {
+            System.out.println("Enter the description of the deposit");
+            description = scanner.nextLine().trim();
 
+        }
 
+        String vendor = "";
+        //Deposit Vendor
+        while (vendor.isEmpty()) {
+            System.out.println("Enter the Vendor for the deposit");
+            vendor = scanner.nextLine().trim();
+        }
 
+        check = false;
 
+        double amount = 0;
+
+        while (!check) {
+            System.out.println("Enter the amount you would like to deposit");
+            amount = scanner.nextDouble();
+            scanner.nextLine();
+            if (amount >= 0) {
+                System.out.println("Valid Deposit");
+                check = true;
+            } else {
+                System.err.println("Incorrect\nMust be a Positive Deposit\n");
+            }
+        }
+        Transaction transaction = new Transaction(date, time, description, vendor, amount);
+
+        transactions.add(transaction);
+
+        try(BufferedWriter writeInfo = new BufferedWriter(new FileWriter("transactions.csv", true))) {
+            writeInfo.write(transaction.toString());
+            writeInfo.newLine();
+        }catch (Exception e) {
+            System.err.println("Error during transfer to file");
+        }
     }
 
     private static void addPayment(Scanner scanner) {
