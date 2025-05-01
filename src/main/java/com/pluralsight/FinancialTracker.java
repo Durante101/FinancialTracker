@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class FinancialTracker {
 
-    public static ArrayList<Transaction> transactions = new ArrayList<Transaction>();
+     static ArrayList<Transaction> transactions = new ArrayList<>();
     private static final String FILE_NAME = "transactions.csv";
     private static final String DATE_FORMAT = "yyyy-MM-dd";
     private static final String TIME_FORMAT = "HH:mm:ss";
@@ -80,7 +80,8 @@ public class FinancialTracker {
                 String description = parts[2];
                 String vendor = parts[3];
                 double amount = Double.parseDouble(parts[4]);
-                transactions.add(new Transaction(date, time, description, vendor, amount));
+                Transaction myT = new Transaction(date, time, description, vendor, amount);
+                transactions.add(myT);
             }
             br.close();
         } catch (Exception e) {
@@ -295,18 +296,25 @@ public class FinancialTracker {
     private static void displayDeposits() {
         // This method should display a table of all deposits in the `transactions` ArrayList.
         // The table should have columns for date, time, description, vendor, and amount.
-
+        System.out.println("----Deposits----");
+        for (Transaction transaction : transactions) {
+            if (transaction.getAmount() > 0) {
+                System.out.println(transaction);
+            }
+        }
     }
 
     private static void displayPayments() {
         // This method should display a table of all payments in the `transactions` ArrayList.
         // The table should have columns for date, time, description, vendor, and amount.
-        System.out.println("----Deposits----");
+        System.out.println("----Payment----");
         for (Transaction transaction : transactions) {
-            if (transaction.getAmount)
+            if (transaction.getAmount() < 0) {
+                System.out.println(transaction);
+            }
         }
     }
-
+// LOOK UP LOCAL date and year to see methods getyear month and day
     private static void reportsMenu(Scanner scanner) {
         boolean running = true;
         while (running) {
