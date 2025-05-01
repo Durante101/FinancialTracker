@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class FinancialTracker {
 
-     static ArrayList<Transaction> transactions = new ArrayList<>();
+    private static ArrayList<Transaction> transactions = new ArrayList<>();
     private static final String FILE_NAME = "transactions.csv";
     private static final String DATE_FORMAT = "yyyy-MM-dd";
     private static final String TIME_FORMAT = "HH:mm:ss";
@@ -218,7 +218,7 @@ public class FinancialTracker {
             amount = scanner.nextDouble();
             scanner.nextLine();
             if (amount >= 0) {
-                System.out.println("Valid Payment");
+                System.out.println("Valid Payment\n");
                 check = true;
             } else {
                 System.err.println("Incorrect\nMust be a positive Amount\n");
@@ -329,25 +329,40 @@ public class FinancialTracker {
 
             String input = scanner.nextLine().trim();
 
-            switch (input) {
+
+           switch (input) {
                 case "1":
                     // Generate a report for all transactions within the current month,
                     // including the date, time, description, vendor, and amount for each transaction.
+                    int currentMonth = LocalDate.now().getMonthValue();
+                    int currentYear = LocalDate.now().getYear();
+
+                    for (Transaction transaction : transactions) {
+                        if (transaction.getDate().getMonthValue() == currentMonth && transaction.getDate().getYear() == currentYear) {
+                           System.out.println(transaction);
+                        }
+                    }
+                    break;
                 case "2":
                     // Generate a report for all transactions within the previous month,
                     // including the date, time, description, vendor, and amount for each transaction.
+                    break;
                 case "3":
                     // Generate a report for all transactions within the current year,
                     // including the date, time, description, vendor, and amount for each transaction.
+                    break;
 
                 case "4":
                     // Generate a report for all transactions within the previous year,
                     // including the date, time, description, vendor, and amount for each transaction.
+                    break;
                 case "5":
                     // Prompt the user to enter a vendor name, then generate a report for all transactions
                     // with that vendor, including the date, time, description, vendor, and amount for each transaction.
+                    break;
                 case "0":
                     running = false;
+                    break;
                 default:
                     System.out.println("Invalid option");
                     break;
