@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class FinancialTracker {
 
-    private static ArrayList<Transaction> transactions = new ArrayList<Transaction>();
+    public static ArrayList<Transaction> transactions = new ArrayList<Transaction>();
     private static final String FILE_NAME = "transactions.csv";
     private static final String DATE_FORMAT = "yyyy-MM-dd";
     private static final String TIME_FORMAT = "HH:mm:ss";
@@ -18,6 +18,7 @@ public class FinancialTracker {
     private static final DateTimeFormatter TIME_FORMATTER = DateTimeFormatter.ofPattern(TIME_FORMAT);
 
     public static void main(String[] args) {
+        loadTransactions(FILE_NAME);
         Scanner scanner = new Scanner(System.in);
         boolean running = true;
 
@@ -40,7 +41,6 @@ public class FinancialTracker {
                     break;
                 case "L":
                     ledgerMenu(scanner);
-                    loadTransactions(FILE_NAME);
                     break;
                 case "X":
                     System.out.println("Potato Sensei wishes you good luck on your journey");
@@ -84,7 +84,7 @@ public class FinancialTracker {
             }
             br.close();
         } catch (Exception e) {
-            System.err.println("Error try again");
+            System.err.println();
         }
     }
 
@@ -243,7 +243,7 @@ public class FinancialTracker {
         while (running) {
             System.out.println("Ledger");
             System.out.println("Choose an option:");
-            System.out.println("A) A`ll");
+            System.out.println("A) All");
             System.out.println("D) Deposits");
             System.out.println("P) Payments");
             System.out.println("R) Reports");
@@ -273,20 +273,38 @@ public class FinancialTracker {
         }
     }
 
-    private static void displayLedger(String FILE_NAME) {
+    private static void displayLedger() {
         // This method should display a table of all transactions in the `transactions` ArrayList.
         // The table should have columns for date, time, description, vendor, and amount.
-        try ()
+
+        System.out.println("----All Transactions----");
+
+        for (Transaction transaction : transactions) {
+            System.out.println(transaction);
+        }
+
+
+
+
     }
+
+
+
+
 
     private static void displayDeposits() {
         // This method should display a table of all deposits in the `transactions` ArrayList.
         // The table should have columns for date, time, description, vendor, and amount.
+
     }
 
     private static void displayPayments() {
         // This method should display a table of all payments in the `transactions` ArrayList.
         // The table should have columns for date, time, description, vendor, and amount.
+        System.out.println("----Deposits----");
+        for (Transaction transaction : transactions) {
+            if (transaction.getAmount)
+        }
     }
 
     private static void reportsMenu(Scanner scanner) {
