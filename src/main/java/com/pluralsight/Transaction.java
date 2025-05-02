@@ -61,20 +61,6 @@ public class Transaction {
     @Override
     public String toString() {
 
-/*        StringBuilder transactionBuilder = new StringBuilder();
-        transactionBuilder.append(date);
-        transactionBuilder.append("|");
-        transactionBuilder.append(time);
-        transactionBuilder.append("|");
-        transactionBuilder.append(description);
-        transactionBuilder.append("|");
-        transactionBuilder.append(vendor);
-        transactionBuilder.append("|");
-        transactionBuilder.append(amount);*/
-
-        //transactionBuilder.toString();
-
-        // advanced way
         return String.format("%s|%s|%s|%s|%.2f", date, time, description, vendor, amount);
     }
 }
