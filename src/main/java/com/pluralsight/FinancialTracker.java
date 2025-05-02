@@ -360,6 +360,10 @@ public class FinancialTracker {
                 case "4":
                     // Generate a report for all transactions within the previous year,
                     // including the date, time, description, vendor, and amount for each transaction.
+                    startDate = LocalDate.now().minusYears(1).withDayOfYear(1);
+                    endDate = startDate.withMonth(12).withDayOfMonth(31);
+
+                    filterTransactionsByDate(startDate, endDate);
                     break;
                 case "5":
                     // Prompt the user to enter a vendor name, then generate a report for all transactions
