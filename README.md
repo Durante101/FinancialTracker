@@ -71,7 +71,7 @@ List resources such as tutorials, articles, or documentation that helped you dur
 
 - [Java Programming Tutorial](https://www.example.com)
 - [Effective Java](https://www.example.com)
-
+- [ChatGPT](https://chatgpt.com/)
 ## Team Members
 
 - **Durante Thorton 1** - Programmer.
