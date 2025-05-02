@@ -3,7 +3,7 @@
 ## Description of the Project
 
 Briefly describe what this Java console application does. Mention its purpose and who the intended users are. Explain the main functionality and what problems it aims to solve.
-
+This Java CLI application allows users to track all financial transactions. It can be used for both business and personal accounting purposes
 ![Class Diagram](path/to/your/class_diagram.png)
 
 ## User Stories
@@ -12,11 +12,16 @@ List the user stories that guided the development of your application. Format th
 
 - As a user, I want to be able to input my data, so that the application can process it accordingly.
 - As a user, I want to receive immediate feedback, so I can understand what to do next.
-
+- As a customer I should have a home screen with multiple options so that add deposit, make payments, Ledger, and a Exit.
+- As a customer I want to add a deposit to my account so that I can save and keep track
+- As a customer I want to make a payment so that I'm able to keep track and purchase items
+- As a customer I want to be able to see the ledger screen So that I can see all entries deposits payments and reports
+- As a customer I want to look at the ledger screen and view reports so that a new screen will allow the user to run pre-defined reports or to run a custom search
+- As a customer I want to be able to do this to exit the program so that after I'm finished I can put away the application
 ## Setup
 
 Instructions on how to set up and run the project using IntelliJ IDEA.
-
+I open IntelliJ and start a new Java project, then I name the project, right-click the src folder, and create a new Java class. I paste my code into that file. If I’m using a CSV file like transactions.csv, I make sure it’s in the project folder or fix the path in the code. After that, I just hit the green play button or right-click the file and run it—the app shows up in the terminal at the bottom.
 ### Prerequisites
 
 - IntelliJ IDEA: Ensure you have IntelliJ IDEA installed, which you can download from [here](https://www.jetbrains.com/idea/download/).
@@ -36,6 +41,7 @@ Follow these steps to get your application running within IntelliJ IDEA:
 
 - Java: Mention the version you are using.
 - Any additional libraries or frameworks used in the project.
+- Java 17 Maven
 
 ## Demo
 
@@ -49,7 +55,7 @@ Outline potential future enhancements or functionalities you might consider addi
 
 - Additional feature to be developed.
 - Improvement of current functionalities.
-
+  Security code To be able to go back further than just the previous year To be able to compare how much you paid before and now
 ## Resources
 
 List resources such as tutorials, articles, or documentation that helped you during the project.
@@ -59,13 +65,13 @@ List resources such as tutorials, articles, or documentation that helped you dur
 
 ## Team Members
 
-- **Name 1** - Specific contributions or roles.
-- **Name 2** - Specific contributions or roles.
+- **Durante Thorton 1** - Programmer.
+
 
 ## Thanks
 
 Express gratitude towards those who provided help, guidance, or resources:
 
-- Thank you to [Mentor's Name] for continuous support and guidance.
+- Thank you to [Raymond] for continuous support and guidance.
 - A special thanks to all teammates for their dedication and teamwork.
  
