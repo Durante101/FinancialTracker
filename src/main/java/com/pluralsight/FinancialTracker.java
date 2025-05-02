@@ -352,8 +352,11 @@ public class FinancialTracker {
                 case "3":
                     // Generate a report for all transactions within the current year,
                     // including the date, time, description, vendor, and amount for each transaction.
-                    break;
+                    startDate = LocalDate.now().withDayOfYear(1);
+                    endDate = LocalDate.now();
 
+                    filterTransactionsByDate(startDate, endDate);
+                    break;
                 case "4":
                     // Generate a report for all transactions within the previous year,
                     // including the date, time, description, vendor, and amount for each transaction.
