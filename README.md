@@ -48,17 +48,15 @@ Follow these steps to get your application running within IntelliJ IDEA:
 Include screenshots or GIFs that show your application in action. Use tools like [Giphy Capture](https://giphy.com/apps/giphycapture) to record a GIF of your application.
 
 ![image alt](https://github.com/Durante101/FinancialTracker/blob/main/Screenshot%202025-05-02%20055203.png)
-![image alt]
-![image alt]
-![image alt]
-![image alt]
-![image alt]
-![image alt]
-![image alt]
-![image alt]
-![image alt]
-![image alt]
-![image alt]
+![image alt](https://github.com/Durante101/FinancialTracker/blob/main/Screenshot%202025-05-02%20055214.png)
+![image alt](https://github.com/Durante101/FinancialTracker/blob/main/Screenshot%202025-05-02%20055228.png)
+![image alt](https://github.com/Durante101/FinancialTracker/blob/main/Screenshot%202025-05-02%20055238.png)
+![image alt](https://github.com/Durante101/FinancialTracker/blob/main/Screenshot%202025-05-02%20055258.png)
+![image alt](https://github.com/Durante101/FinancialTracker/blob/main/Screenshot%202025-05-02%20055322.png)
+![image alt](https://github.com/Durante101/FinancialTracker/blob/main/Screenshot%202025-05-02%20055330.png)
+![image alt](https://github.com/Durante101/FinancialTracker/blob/main/Screenshot%202025-05-02%20055345.png)
+![image alt](https://github.com/Durante101/FinancialTracker/blob/main/Screenshot%202025-05-02%20055353.png)
+![image alt](https://github.com/Durante101/FinancialTracker/blob/main/Screenshot%202025-05-02%20055403.png)
 
 ## Future Work
 
