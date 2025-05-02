@@ -329,13 +329,15 @@ public class FinancialTracker {
 
             String input = scanner.nextLine().trim();
 
+            LocalDate endDate;
+            LocalDate startDate;
 
            switch (input) {
                 case "1":
                     // Generate a report for all transactions within the current month,
                     // including the date, time, description, vendor, and amount for each transaction.
-                    LocalDate endDate = LocalDate.now();
-                    LocalDate startDate = endDate.withDayOfMonth(1);
+                    endDate = LocalDate.now();
+                    startDate = endDate.withDayOfMonth(1);
 
                     filterTransactionsByDate(startDate, endDate);
                     break;
@@ -381,12 +383,12 @@ public class FinancialTracker {
 
         while (!startDate.isAfter(endDate)) {
             for (Transaction transaction : transactions) {
-                if (transaction.getDate().isEqual(endDate)) {
+                if (transaction.getDate().isEqual(startDate)) {
                     System.out.println(transaction);
                 }
             }
 
-            endDate = endDate.plusDays(1);
+            startDate = startDate.plusDays(1);
         }
     }
 
