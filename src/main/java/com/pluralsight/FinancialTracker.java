@@ -8,6 +8,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import static com.sun.imageio.plugins.jpeg.JPEG.vendor;
+
 public class FinancialTracker {
 
     private static ArrayList<Transaction> transactions = new ArrayList<>();
@@ -368,6 +370,10 @@ public class FinancialTracker {
                 case "5":
                     // Prompt the user to enter a vendor name, then generate a report for all transactions
                     // with that vendor, including the date, time, description, vendor, and amount for each transaction.
+                    System.out.println("Enter which vendor report you want displayed");
+                    String vendor = scanner.nextLine().trim();
+
+                    filterTransactionsByVendor(vendor, scanner);
                     break;
                 case "0":
                     running = false;
@@ -399,12 +405,24 @@ public class FinancialTracker {
         }
     }
 
-    private static void filterTransactionsByVendor(String vendor) {
+    private static void filterTransactionsByVendor(String l, Scanner scanner) {
         // This method filters the transactions by vendor and prints a report to the console.
         // It takes one parameter: vendor, which represents the name of the vendor to filter by.
         // The method loops through the transactions list and checks each transaction's vendor name against the specified vendor name.
         // Transactions with a matching vendor name are printed to the console.
         // If no transactions match the specified vendor name, the method prints a message indicating that there are no results.
+        boolean check = false;
+
+        for (Transaction transaction : transactions) {
+            if (transaction.getVendor().equalsIgnoreCase(vendor)) {
+                System.out.println(transaction);
+                check = true;
+            }
+        }
+
+        if (!check) {
+            System.err.println("No results found for vendor");
+        }
     }
 
 }
